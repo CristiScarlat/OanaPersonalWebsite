@@ -4,6 +4,9 @@ var path = require('path');
 
 var app = express();
 
+// Require in Express Router
+const router = require('./routes');
+
 app.set('view engine', 'nunj'); 
 
 app.use(express.urlencoded({ extended: false }));
@@ -15,10 +18,11 @@ nunjucks.configure('./views', {
 })
 
 
-app.get('/', function(req, res){
-  res.render('index.html', {port: 5000, page: 'Home'});
-});
-
+// app.get('/', function(req, res){
+//   res.render('index.html', {port: 5000, page: 'Home'});
+// });
+// index page
+app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function(err,req, res, next) {

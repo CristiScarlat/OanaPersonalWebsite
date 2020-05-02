@@ -2,14 +2,14 @@
 
 {% block body %}
 <script>
-    console.log("index params=", '{{ port | dump | safe }}')
+    console.log("index params=", '{{ title | dump | safe }}')
 </script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             {% block content %}
-            <h1>Page: {{ page }}</h1>
-            <h3>Port: {{ port }}</h3>
+            <h1>Page: {{ title }}</h1>
+            <h3>Port: {{ sub }}</h3>
             <br>
             <p>Looks like we're up and running!</p>
             <div>
