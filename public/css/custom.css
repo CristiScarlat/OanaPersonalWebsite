@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
+body {
+    background: #e9ecef;
+    font-family: futura-pt, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-family: 'Prompt', sans-serif;
+}
+
+.content-container {
+    padding: 1rem;
+}
