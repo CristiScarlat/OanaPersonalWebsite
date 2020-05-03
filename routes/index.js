@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const readDir = require('../utils/filesUtils.js');
+const path = require('path');
 
-// let index = require('../modules/index.js');
+let albums = []
+readDir(path.resolve('./media'), (err, result) => albums = result);
 
 router
   .route('/')
   .get((req, res) => {
     let data = {
-      title: 'Nunjucks',
-      sub: 'Using nunjucks - cristi'
+      albums: albums
     };
     res.render('index.html', data);
   });
