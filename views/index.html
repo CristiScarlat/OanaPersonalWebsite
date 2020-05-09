@@ -2,9 +2,11 @@
 
 {% block body %}
 {% block content %}
-<!-- <div class="text-center m-auto"> -->
-    <img src='images/home_img.jpg' alt='' class="img-fluid rounded mx-auto d-block"/>
-<!-- </div> -->
+<script>
+    console.log("index-albums", '{{ albums | dump | safe }}')
+    console.log("index-pictures", '{{ pictures | dump | safe }}')
+</script>
+
 {% endblock %}
 
 {% endblock %}

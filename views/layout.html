@@ -19,9 +19,7 @@
 </head>
 
 <body>
-    <script>
-        console.log("layout", '{{ albums | dump | safe }}')
-    </script>
+    
     <header>
         <div class="jumbotron jumbotron-fluid m-0">
             <div class="container text-center">
@@ -48,10 +46,10 @@
             </div>
         </nav>
     </header>
-    <div class="container-fluid bg-dark p-1 mb-3">
+    <main class="container-fluid bg-dark p-1 mb-3">
         {% block body %}
         {% endblock %}
-    </div>
+    </main>
     <footer class="navbar fixed-bottom bg-light">
         <form class="form-inline p-2">
             <input class="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search" aria-label="Search">

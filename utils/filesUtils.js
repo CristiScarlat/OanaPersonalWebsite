@@ -1,23 +1,33 @@
 const fs = require('fs');
+const util = require('util');
 const path = require('path');
 
-const readDir = (dir, done) => {
-    let dirList = [];   
-    fs.readdir(dir, { withFileTypes: true }, (err, files) => {
-        if(err)done(err, dirList);
-        let list = files.length;
-        files.forEach(file => {
-            const filePath = path.resolve(dir, file.name);
-            fs.stat(filePath, (err, stat) => {
-                if(err)done(err, dirList);
-                list--;
-                if(stat && stat.isDirectory()){
-                    dirList.push(file.name);
-                    if(list === 0)done(null, dirList);
-                }
-            })
-        });
-    }); 
+const readdir = util.promisify(fs.readdir);
+const stat = util.promisify(fs.stat);
+
+async function readDir(dir) {
+  try {
+    const allDirs = await readdir(dir);
+    const directories = []
+    await Promise.all(allDirs.map(async (dir) => {
+      if((await stat(path.resolve('./media') + '/' + dir)).isDirectory())directories.push(dir);
+    })); 
+    return directories;
+  } 
+  catch (err) {
+    console.log(err);
+    return [err]
+  }
 }
 
-module.exports = readDir;
+const getFiles = async (dir) => {
+  try{
+    return await readdir(dir);
+  }
+  catch (err) {
+    console.log(err);
+    return [err]
+  }
+}
+
+module.exports = { readDir, getFiles };

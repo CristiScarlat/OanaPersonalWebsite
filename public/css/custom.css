@@ -6,3 +6,8 @@ body {
     font-weight: 300;
     font-family: 'Prompt', sans-serif;
 }
+
+img {
+    max-width: 700px;
+    max-height: 700px;
+}
