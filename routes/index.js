@@ -15,7 +15,8 @@ async function getData() {
       console.log(err);
     }
   }));
-  console.log(dirs, files)
+  data.albums = dirs;
+  data.pictures = files;
 }
 
 getData();
