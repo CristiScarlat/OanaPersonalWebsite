@@ -15,7 +15,7 @@ async function getData() {
       console.log(err);
     }
   }));
-  data.albums = dirs;
+  data.albums = ['menu1', 'menu2', 'menu3', 'menu4', 'blablablabla', 'dfgachbdsn shog i']// dirs;
   data.pictures = files;
 }
 
