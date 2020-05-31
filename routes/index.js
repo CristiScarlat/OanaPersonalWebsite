@@ -33,5 +33,9 @@ router.route('/pictures').get((req, res) => {
     res.render('pictures.html', data);
 })
 
+router.route('/admin').get((req, res) => {
+  data,
+    res.render('admin.html', data);
+})
 
 module.exports = router;

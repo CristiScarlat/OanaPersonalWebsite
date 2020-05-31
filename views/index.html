@@ -6,14 +6,32 @@
     console.log("index-albums", '{{ albums | dump | safe }}')
     console.log("index-pictures", '{{ pictures | dump | safe }}')
 </script>
-<div class="container-fluid text-center bg-light p-1">
-    <img src="images/home_img.jpg" class="img-fluid" alt="Responsive image"/>
-    <img src="images/homePainting.jpg" class="img-fluid" alt="Responsive image"/>
-    <img src="images/homePainting5.jpg" class="img-fluid" alt="Responsive image"/>
-    <img src="images/homePainting2.jpg" class="img-fluid" alt="Responsive image"/>
-    <img src="images/homePainting3.jpg" class="img-fluid" alt="Responsive image"/>
-    <img src="images/homePainting4.jpg" class="img-fluid" alt="Responsive image"/>
 
+<div class="container-fluid text-center bg-light p-1 mr-4 ml-4">
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+    </button> -->
+    <div class="row">
+        <div class="column">
+            <img src="images/home_img.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/homePainting.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/oneiric3.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/oneiric4.jpg" class="img-fluid" alt="Responsive image" />
+        </div>
+        <div class="column">
+            <img src="images/homePainting5.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/homePainting2.jpg" class="img-fluid" alt="Responsive image" />
+        </div>
+        <div class="column">
+            <img src="images/homePainting3.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/homePainting4.jpg" class="img-fluid" alt="Responsive image" />
+        </div>
+        <div class="column">
+            <img src="images/oneiric1.jpg" class="img-fluid" alt="Responsive image" />
+            <img src="images/oneiric2.jpg" class="img-fluid" alt="Responsive image" />
+        </div>
+    </div>
 </div>
 
 {% endblock %}
