@@ -9,25 +9,39 @@ async function readDir(dir) {
   try {
     const allDirs = await readdir(dir);
     const directories = []
-    await Promise.all(allDirs.map(async (dir) => {
-      if((await stat(path.resolve('./media') + '/' + dir)).isDirectory())directories.push(dir);
-    })); 
+    
+    await Promise.all(allDirs.map(async (d) => {
+      if ((await stat(dir)).isDirectory()) directories.push(d);
+    }));
     return directories;
-  } 
+  }
   catch (err) {
     console.log(err);
     return [err]
   }
 }
 
-const getFiles = async (dir) => {
-  try{
+async function getFiles(dir) {
+  try {
     return await readdir(dir);
   }
   catch (err) {
     console.log(err);
     return [err]
   }
+}
+
+
+function deleteAllFiles(dir) {
+  fs.readdir(dir, (err, files) => {
+    if (err) throw err;
+
+    for (const file of files) {
+      fs.unlink(path.join(dir, file), err => {
+        if (err) throw err;
+      });
+    }
+  });
 }
 
 module.exports = { readDir, getFiles };

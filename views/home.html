@@ -1,0 +1,30 @@
+{% extends './layout.html' %}
+
+{% block body %}
+{% block content %}
+<script>
+    console.log("index-albums", '{{ albums | dump | safe }}')
+    console.log("index-pictures", '{{ pictures | dump | safe }}')
+</script>
+{% include "./header.html" %}
+<div class="container-fluid d-flex h-100 mt-4 p-4 align-items-center justify-content-between" style="background: white;">
+    <img src="images/oana_painted.jpg" class="img-fluid home-img" alt="Responsive image" />
+    <div class="home-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pharetra tortor ut sapien euismod luctus.
+        Duis in turpis tristique, laoreet eros et, rhoncus urna. Vivamus vestibulum quis massa eget tempus. Duis
+        nunc lectus, varius ut semper sed, hendrerit ac leo. Nunc ut diam eu lorem gravida scelerisque eget sit amet
+        enim. Vestibulum blandit id magna vitae vulputate. Etiam pharetra risus sit amet rutrum efficitur. Fusce
+        nisi sem, lobortis quis pharetra eget, hendrerit ac ligula.
+
+        Pellentesque tincidunt sagittis convallis. Duis eget lectus purus. Nulla in sapien risus. Phasellus in orci
+        felis. Aenean condimentum tellus id sapien consectetur efficitur. Vivamus nec lacinia magna. Curabitur eget
+        erat ligula. Nulla venenatis ornare diam eget vulputate. Vestibulum venenatis est id lorem scelerisque, sit
+        amet laoreet ante efficitur. Vivamus auctor dui nec nisl malesuada suscipit. Sed varius tempus varius. Sed
+        eget ex ante. Donec eu maximus mauris.
+    </div>
+</div>
+<div class="balloon"></div>
+{% include "./footer.html" %}
+{% endblock %}
+
+{% endblock %}

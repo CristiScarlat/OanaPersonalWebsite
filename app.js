@@ -1,43 +1,52 @@
-var express = require('express');
-var nunjucks = require('nunjucks');
-var path = require('path');
+const express = require('express');
+const nunjucks = require('nunjucks');
+const path = require('path');
+const session = require('express-session');
+var bodyParser =	require("body-parser");
 
-var app = express();
+const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Require in Express Router
-const router = require('./routes');
+const routes = require('./routes');
 
-app.set('view engine', 'nunj'); 
+app.set('view engine', 'nunj');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'media')));
 
 nunjucks.configure('./views', {
   autoescape: true,
   express: app
 })
 
+app.use('/', routes);
 
-// app.get('/', function(req, res){
-//   res.render('index.html', {port: 5000, page: 'Home'});
-// });
-// index page
-app.use('/', router);
+app.use(session({ 
+  secret: 'secret', 
+  saveUninitialized: false, 
+  resave: false, 
+  cookie: { maxAge: 1000 } 
+}));
+
+
 
 // catch 404 and forward to error handler
-app.use(function(err,req, res, next) {
+app.use(function (err, req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error.html', {error: err});
+  res.render('error.html', { error: err });
 });
 
 const PORT = process.env.PORT || 5000;
