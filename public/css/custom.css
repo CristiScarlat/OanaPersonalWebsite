@@ -125,6 +125,9 @@ footer a {
     background:rgba(0,0,0,0.2); 
   }
   
+  .header-list{
+    background: white;
+  }
 
   @media screen and (max-width: 900px) {
     .balloon{

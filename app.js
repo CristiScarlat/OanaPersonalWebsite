@@ -2,7 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const session = require('express-session');
-var bodyParser =	require("body-parser");
+const bodyParser =	require("body-parser");
 
 const app = express();
 
@@ -35,7 +35,7 @@ app.use(session({
 
 // catch 404 and forward to error handler
 app.use(function (err, req, res, next) {
-  next(createError(404));
+  next();
 });
 
 // error handler
