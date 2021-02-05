@@ -23,7 +23,7 @@
             <a class="nav-link dropdown-toggle m-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paintings</a>
             <div class="dropdown-menu">
                 {% for album in albums %}
-                <a class="dropdown-item" href="#">{{album}}</a>
+                <a class="dropdown-item" href='/pictures?album={{ album }}'>{{ album }}</a>
                 {% endfor %}
             </div>
           </li>       
