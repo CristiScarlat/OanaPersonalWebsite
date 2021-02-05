@@ -31,7 +31,7 @@ router
 
 router
 .route('/pictures')
-.get((req, res) => {
+.get(async (req, res) => {
   let data = await getData();
   res.render('pictures.html', data);
 });

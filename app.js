@@ -35,7 +35,7 @@ app.use(session({
 
 // catch 404 and forward to error handler
 app.use(function (err, req, res, next) {
-  next();
+  next(createError(404));
 });
 
 // error handler
