@@ -46,7 +46,7 @@ router
     if (req.query.album) {
       pictures = await getAlbum(req.query.album);
     }
-    res.render('pictures.html', {pictures});
+    res.render('pictures.html', { pictures, album: req.query.album });
   });
 
 router.use('/admin', admin);

@@ -2,10 +2,10 @@
 
 {% block body %}
 {% block content %}
-<script>
-    console.log("index-albums", '{{ albums | dump | safe }}')
-    console.log("index-pictures", '{{ pictures | dump | safe }}')
-</script>
+<!-- <script>
+    console.log("{{ albums | safe }}")
+    console.log('{{ pictures | dump | safe }}')
+</script> -->
 {% include "./header.html" %}
 <div class="container-fluid d-flex h-100 mt-4 p-4 align-items-center justify-content-between" style="background: white;">
     <img src="images/oana_painted.jpg" class="img-fluid home-img" alt="Responsive image" />

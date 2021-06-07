@@ -2,10 +2,12 @@
 
 {% block body %}
 {% block content %}
-<script>
-    console.log("pictures-pictures", '{{ pictures | dump | safe }}')
-</script>
-
+<div>
+    <div><h1>{{ album }}</h1></div>
+    {% for picture in pictures %}
+    <img src="/media/albums/{{ album }}/{{ picture }}" width="300"/>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% endblock %}

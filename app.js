@@ -14,8 +14,7 @@ const routes = require('./routes');
 app.set('view engine', 'nunj');
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static(path.join(__dirname, 'media')));
+
 
 nunjucks.configure('./views', {
   autoescape: true,
@@ -23,6 +22,9 @@ nunjucks.configure('./views', {
 })
 
 app.use('/', routes);
+
+app.use(express.static(path.join(__dirname, '/public')));
+app.use('/media', express.static(path.join(__dirname, '/media')));
 
 app.use(session({ 
   secret: 'secret', 
