@@ -3,10 +3,14 @@
 {% block body %}
 {% block content %}
 <div>
-    <div><h1>{{ album }}</h1></div>
-    {% for picture in pictures %}
-    <img src="/media/albums/{{ album }}/{{ picture }}" width="300"/>
-    {% endfor %}
+    <div>
+        <h1>{{ album }}</h1>
+    </div>
+    <div>
+        {% for picture in pictures %}
+        <img src="/media/albums/{{ album }}/{{ picture }}" width="300" />
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
 
